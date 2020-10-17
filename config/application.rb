@@ -49,7 +49,7 @@ Thread.new do
       if !verifySensor?(hardware_id)
         Sensor.create(hardware_id: hardware_id,plant_id: Plant.find_by(name: plant).id)
       end
-      SensorValue.create(sensor_id: Sensor.find_by(hardware_id: hardware_id).id)
+      Datapoint.create(sensor_id: Sensor.find_by(hardware_id: hardware_id).id)
     end
   end
 end

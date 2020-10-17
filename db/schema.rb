@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2020_10_16_115525) do
 
+  create_table "datapoints", force: :cascade do |t|
+    t.integer "sensor_id", null: false
+    t.integer "value"
+    t.time "sensor_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sensor_id"], name: "index_datapoints_on_sensor_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -26,15 +35,6 @@ ActiveRecord::Schema.define(version: 2020_10_16_115525) do
     t.index ["group_id"], name: "index_plants_on_group_id"
   end
 
-  create_table "sensor_values", force: :cascade do |t|
-    t.integer "sensor_id", null: false
-    t.integer "value"
-    t.time "sensor_time"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["sensor_id"], name: "index_sensor_values_on_sensor_id"
-  end
-
   create_table "sensors", force: :cascade do |t|
     t.string "type"
     t.integer "plant_id", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_115525) do
     t.index ["plant_id"], name: "index_sensors_on_plant_id"
   end
 
+  add_foreign_key "datapoints", "sensors"
   add_foreign_key "plants", "groups"
-  add_foreign_key "sensor_values", "sensors"
   add_foreign_key "sensors", "plants"
 end

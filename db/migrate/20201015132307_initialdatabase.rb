@@ -18,7 +18,7 @@ class Initialdatabase < ActiveRecord::Migration[6.0]
       t.boolean :active
       t.timestamps
     end
-    create_table :sensor_values do |t|
+    create_table :datapoints do |t|
       t.references :sensor, null: false, foreign_key: true
       t.integer :value
       t.time :sensor_time

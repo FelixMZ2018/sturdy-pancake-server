@@ -1,4 +1,4 @@
 class Sensor < ApplicationRecord
     belongs_to :plant
-    has_many :sensor_values, class_name: "sensor_value", foreign_key: "sensor_value_id"
+    has_many :datapoints, class_name: "datapoint", foreign_key: "reference_id"
 end
