@@ -6,21 +6,15 @@ Thread.new do
       c.get('Plants/#') do |topic,message|
         puts "#{topic}: #{message}"
         reading = JSON.parse(message)
-        plant = reading["Plant"]
         groupname = reading["PlantGroup"]
+        plant = reading["Plant"]
         hardware_id = reading["Sensor_ID"]
         sensor_value = reading["SensorValue"]
-        if !verifyGroup?(groupname) 
-          Group.create(name: groupname)
-        end
+        !verifyGroup?(groupname) ? Group.create(name: groupname) : nil 
         unless plant == nil
-          if !verifyPlant?(plant)
-            Plant.create(name: plant,group_id: Group.find_by(name: groupname).id)
-          end
+          !verifyPlant?(plant) ? Plant.create(name: plant,group_id: Group.find_by(name: groupname).id) : nil
         end
-        if !verifySensor?(hardware_id)
-          Sensor.create(hardware_id: hardware_id,plant_id: (plant == nil ? nil : Plant.find_by(name: plant).id),group_id: Group.find_by(name: groupname).id)
-        end
+          !verifySensor?(hardware_id) ? Sensor.create(hardware_id: hardware_id,plant_id: (plant == nil ? nil : Plant.find_by(name: plant).id),group_id: Group.find_by(name: groupname).id) : nil
         Datapoint.create(sensor_id: Sensor.find_by(hardware_id: hardware_id).id,value: sensor_value)
       end
     end
