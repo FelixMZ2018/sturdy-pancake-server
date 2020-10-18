@@ -40,16 +40,19 @@ Thread.new do
       plant = reading["Plant"]
       groupname = reading["PlantGroup"]
       hardware_id = reading["Sensor_ID"]
+      sensor_value = reading["SensorValue"]
       if !verifyGroup?(groupname) 
         Group.create(name: groupname)
       end
-      if !verifyPlant?(plant)
-        Plant.create(name: plant,group_id: Group.find_by(name: groupname).id)
+      unless plant == nil
+        if !verifyPlant?(plant)
+          Plant.create(name: plant,group_id: Group.find_by(name: groupname).id)
+        end
       end
       if !verifySensor?(hardware_id)
-        Sensor.create(hardware_id: hardware_id,plant_id: Plant.find_by(name: plant).id)
+        Sensor.create(hardware_id: hardware_id,plant_id: (plant == nil ? nil : Plant.find_by(name: plant).id),group_id: Group.find_by(name: groupname).id)
       end
-      Datapoint.create(sensor_id: Sensor.find_by(hardware_id: hardware_id).id)
+      Datapoint.create(sensor_id: Sensor.find_by(hardware_id: hardware_id).id,value: sensor_value)
     end
   end
 end

@@ -37,17 +37,20 @@ ActiveRecord::Schema.define(version: 2020_10_16_115525) do
 
   create_table "sensors", force: :cascade do |t|
     t.string "type"
-    t.integer "plant_id", null: false
+    t.integer "plant_id"
+    t.integer "group_id"
     t.integer "low_threshold"
     t.integer "high_threshold"
     t.string "hardware_id"
     t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_sensors_on_group_id"
     t.index ["plant_id"], name: "index_sensors_on_plant_id"
   end
 
   add_foreign_key "datapoints", "sensors"
   add_foreign_key "plants", "groups"
+  add_foreign_key "sensors", "groups"
   add_foreign_key "sensors", "plants"
 end

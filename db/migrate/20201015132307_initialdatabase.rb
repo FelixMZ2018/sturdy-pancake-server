@@ -11,7 +11,8 @@ class Initialdatabase < ActiveRecord::Migration[6.0]
     end
     create_table :sensors do |t|
       t.string :type
-      t.references :plant, null: false, foreign_key: true
+      t.references :plant, null: true, foreign_key: true
+      t.references :group, null: true, foreign_key: true
       t.integer :low_threshold
       t.integer :high_threshold
       t.string :hardware_id
