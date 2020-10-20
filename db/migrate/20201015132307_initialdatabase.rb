@@ -10,7 +10,7 @@ class Initialdatabase < ActiveRecord::Migration[6.0]
       t.timestamps
     end
     create_table :sensors do |t|
-      t.string :type
+      t.string :Sensor_Type
       t.references :plant, null: true, foreign_key: true
       t.references :group, null: true, foreign_key: true
       t.integer :low_threshold

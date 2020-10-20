@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_115525) do
   end
 
   create_table "sensors", force: :cascade do |t|
-    t.string "type"
+    t.string "Sensor_Type"
     t.integer "plant_id"
     t.integer "group_id"
     t.integer "low_threshold"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_10_16_115525) do
     t.index ["plant_id"], name: "index_sensors_on_plant_id"
   end
 
-  add_foreign_key "datapoints", "sensors"
   add_foreign_key "plants", "groups"
   add_foreign_key "sensors", "groups"
   add_foreign_key "sensors", "plants"
