@@ -11,9 +11,10 @@
                 <div class="card-title text-center">
                     <p><strong><%=plant.name%></strong></p>
                 </div>
-                <div class="card-text">Lore Ipsum
-                <%= plant.sensor.all %> 
-                
+                <div class="card-text">
+                <% sensor = Sensor.where(plant_id: plant.id).first%>
+                <%= sensor.Sensor_Type %>
+                <%= Datapoint.where(sensor_id: sensor.id).last.value %>                
                 </div>
             </div>
             </div>

@@ -11,4 +11,4 @@ RSpec.describe Datapoint, :type => :model do
       dp_no_value = Datapoint.new(sensor_id: 1,value: nil)
       expect(dp_no_value).to_not be_valid
     end
-  end
+end
