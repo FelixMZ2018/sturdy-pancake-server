@@ -6,7 +6,7 @@ class PlantsController < ApplicationController
     def update
         @Plant = Plant.find(params[:id])
         if @Plant.update(params)
-          redirect_to @Plant, notice: 'Cocktail was successfully updated.'
+          redirect_to @Plant, notice: 'Plant was successfully updated.'
         else
           render :edit
         end
