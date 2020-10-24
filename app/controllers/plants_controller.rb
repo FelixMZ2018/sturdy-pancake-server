@@ -1,4 +1,7 @@
 class PlantsController < ApplicationController
+    def show
+      @Plant = Plant.find(params[:id])
+    end
     def edit
         @Plant = Plant.find(params[:id])
     end
