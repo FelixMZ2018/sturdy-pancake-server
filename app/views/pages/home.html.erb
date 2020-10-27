@@ -14,7 +14,7 @@
                 <div class="card-text">
                 <% sensor = Sensor.where(plant_id: plant.id).first%>
                 <%= sensor.Sensor_Type %>
-                <%= Datapoint.where(sensor_id: sensor.id).last.value %>                
+                <%= Datapoint.where(sensor_id: sensor.id).last.value%>%                
                 </div>
             </div>
             </div>
