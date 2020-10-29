@@ -1,3 +1,6 @@
+![Linters](https://github.com/FelixMZ2018/sturdy-pancake-server/workflows/Linters/badge.svg)
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
