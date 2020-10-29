@@ -1,19 +1,20 @@
-class PlantsController < ApplicationController
-    def show
-      @Plant = Plant.find(params[:id])
-    end
-    def edit
-        @Plant = Plant.find(params[:id])
-    end
+# frozen_string_literal: true
 
-    def update
-        @Plant = Plant.find(params[:id])
-        if @Plant.update(params)
-          redirect_to @Plant, notice: 'Plant was successfully updated.'
-        else
-          render :edit
-        end
-      end
-    
-    
+class PlantsController < ApplicationController
+  def show
+    @plant = Plant.find(params[:id])
+  end
+
+  def edit
+    @plant = Plant.find(params[:id])
+  end
+
+  def update
+    @plant = Plant.find(params[:id])
+    if @plant.update(params)
+      redirect_to @plant, notice: "Plant was successfully updated."
+    else
+      render :edit
+    end
+  end
 end
