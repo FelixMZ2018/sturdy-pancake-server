@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_115525) do
     t.index ["plant_id"], name: "index_sensors_on_plant_id"
   end
 
+  add_foreign_key "datapoints", "sensors"
   add_foreign_key "plants", "groups"
   add_foreign_key "sensors", "groups"
   add_foreign_key "sensors", "plants"

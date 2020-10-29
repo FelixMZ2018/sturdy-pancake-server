@@ -41,6 +41,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'rubocop'
 
 end
 
@@ -49,6 +50,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'listen', '~> 3.2'
+  gem 'rubocop'
 
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -61,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mqtt'
 gem 'json'
 gem 'bootstrap-sass'
+gem 'rubocop'
