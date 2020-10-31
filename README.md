@@ -1,5 +1,5 @@
 ![Linters](https://github.com/FelixMZ2018/sturdy-pancake-server/workflows/Linters/badge.svg)
-
+![Rails tests](https://github.com/FelixMZ2018/sturdy-pancake-server/workflows/Rails%20tests/badge.svg)
 
 # README
 

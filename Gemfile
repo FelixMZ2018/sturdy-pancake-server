@@ -60,3 +60,4 @@ gem 'bootstrap-sass'
 gem 'json'
 gem 'mqtt'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'simple_form'
