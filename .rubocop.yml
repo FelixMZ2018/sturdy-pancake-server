@@ -4,6 +4,7 @@ AllCops:
     - './bin/bundle'
     - ./db/**/*
     - ./node_modules/**/*
+    - ./config/**/*
 
 Style/FrozenStringLiteralComment:
   Enabled: false

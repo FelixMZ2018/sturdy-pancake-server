@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class PlantsController < ApplicationController
-  def new 
+  def new
     @plant = Plant.new
   end
+
   def show
     @plant = Plant.find(params[:id])
   end
@@ -11,7 +12,7 @@ class PlantsController < ApplicationController
   def edit
     @plant = Plant.find(params[:id])
   end
-  
+
   def update
     @plant = Plant.find(params[:id])
     if @plant.update(params)
