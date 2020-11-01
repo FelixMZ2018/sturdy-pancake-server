@@ -18,6 +18,8 @@ class Initialdatabase < ActiveRecord::Migration[6.0]
       t.integer :low_threshold
       t.integer :high_threshold
       t.string :hardware_id
+      t.integer :low_value
+      t.integer :high_value
       t.boolean :active
       t.timestamps
     end

@@ -9,12 +9,12 @@
             <div class="card" style="height: 100%;">
                 <div class="card-body">
                 <div class="card-title text-center">
-                    <p><strong><%=plant.name%></strong></p>
+                    <p><strong><%= link_to plant.name , plant_path(plant)%> </strong></p>
                 </div>
                 <div class="card-text">
                 <% sensor = Sensor.where(plant_id: plant.id).first%>
                 <%= sensor.Sensor_Type %>
-                <%= Datapoint.where(sensor_id: sensor.id).last.value%>%                
+                <%= Datapoint.where(sensor_id: sensor.id).last.value%>                
                 </div>
             </div>
             </div>

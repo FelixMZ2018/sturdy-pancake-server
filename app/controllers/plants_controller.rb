@@ -2,6 +2,7 @@
 
 class PlantsController < ApplicationController
   def new
+    @group = Group.find(params[:id])
     @plant = Plant.new
   end
 
