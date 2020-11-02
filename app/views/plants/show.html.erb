@@ -1,1 +1,2 @@
 <%= @plant.name %>
+                <%= Sensor.where(plant_id: @plant.id).first%>
